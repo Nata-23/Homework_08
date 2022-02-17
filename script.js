@@ -7,19 +7,30 @@
 // }.${dateofBirth.getFullYear()}`);
 
 //2
-function getDiffDays(dateofStart, dateofEnd) {
-  const a = new Date(dateofStart);
-  const b = new Date(dateofEnd);
-  if (isNaN(a) || isNaN(b)) {
-    console.error("Error: invalid date");
-  } else if (Date.parse(dateofStart) > Date.parse(dateofEnd)) {
-    console.error("Error:your start date is later than end");
-  } else {
-    const oneDay = 1000 * 60 * 60 * 24;
-    return Math.round((b.getTime() - a.getTime()) / oneDay);
-  }
-}
-console.log(getDiffDays("2020-01-01", "2020-01-17")); // 16
-console.log(getDiffDays("2020-01-01", "2020-03-15")); // 74
-console.log(getDiffDays("2222222222", "2020-03-15")); // Error: invalid date
-console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date is later than end
+// function getDiffDays(dateofStart, dateofEnd) {
+//   const firstDate = new Date(dateofStart);
+//   const secondDate = new Date(dateofEnd);
+//   if (isNaN(firstDate) || isNaN(secondDate)) {
+//     console.error("Error: invalid date");
+//   } else if (Date.parse(dateofStart) > Date.parse(dateofEnd)) {
+//     console.error("Error:your start date is later than end");
+//   } else {
+//     const oneDay = 1000 * 60 * 60 * 24;
+//     return Math.round((secondDate.getTime() - firstDate.getTime()) / oneDay);
+//   }
+// }
+// console.log(getDiffDays("2020-01-01", "2020-01-17")); // 16
+// console.log(getDiffDays("2020-01-01", "2020-03-15")); // 74
+// console.log(getDiffDays("2222222222", "2020-03-15")); // Error: invalid date
+// console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date is later than end
+
+//3
+const isWeekend = (newDate) => {
+  const date = new Date(newDate);
+  return date.getDay() >= 1 && date.getDay() <= 5 ? false : true;
+};
+console.log(isWeekend("2022-02-12")); // true
+console.log(isWeekend("2022-02-13")); // true
+console.log(isWeekend("2022-02-09")); // false
+
+//4
