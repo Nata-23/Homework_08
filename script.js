@@ -11,9 +11,9 @@
 //   const firstDate = new Date(dateofStart);
 //   const secondDate = new Date(dateofEnd);
 //   if (isNaN(firstDate) || isNaN(secondDate)) {
-//     console.error("Error: invalid date");
+//     return "Error: invalid date";
 //   } else if (Date.parse(dateofStart) > Date.parse(dateofEnd)) {
-//     console.error("Error:your start date is later than end");
+//     return "Error:your start date is later than end";
 //   } else {
 //     const oneDay = 1000 * 60 * 60 * 24;
 //     return Math.round((secondDate.getTime() - firstDate.getTime()) / oneDay);
@@ -25,12 +25,31 @@
 // console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date is later than end
 
 //3
-const isWeekend = (newDate) => {
-  const date = new Date(newDate);
-  return date.getDay() >= 1 && date.getDay() <= 5 ? false : true;
-};
-console.log(isWeekend("2022-02-12")); // true
-console.log(isWeekend("2022-02-13")); // true
-console.log(isWeekend("2022-02-09")); // false
+// const isWeekend = (newDate) => {
+//   const date = new Date(newDate);
+//   return date.getDay() >= 1 && date.getDay() <= 5 ? false : true;
+// };
+// console.log(isWeekend("2022-02-12")); // true
+// console.log(isWeekend("2022-02-13")); // true
+// console.log(isWeekend("2022-02-09")); // false
 
 //4
+const person = {
+  fullName: "Sherlock Holmes",
+  address: {
+    street: "Baker Street",
+    city: "London",
+    house: "221b",
+  },
+};
+
+const json = JSON.stringify(person);
+console.log(json);
+const newObject = JSON.parse(json);
+console.log(newObject);
+
+const {
+  address: { street, city, house },
+  fullName,
+} = person;
+console.log(fullName, street, city, house);
